@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /*si on utilise un plugin ou un component ou on change le border box "inherit" will inherit ce qui y'a dans box-sizing  */
+}
+
+html {
+  // this define what 1 rem is
+  font-size: 62.5%;
+}
+
+body {
+  // background-color: #888;
+  box-sizing: border-box;
+  padding: 3rem;
+}
