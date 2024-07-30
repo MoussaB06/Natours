@@ -1,6 +1,79 @@
-.Story {
+.story {
   width: 75%;
   margin: 0 auto;
   box-shadow: 0 3rem 6rem rgba(#000000, 0.1);
-  background-color: #ffffff;
+  background-color: rgba(#fff, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: 1.6rem;
+
+  transform: skewX(-12deg);
+
+  & > * {
+    transform: skewX(12deg);
+  }
+
+  &_shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+
+    shape-outside: circle(
+      50% at 50% 50%
+    ); //shape-outside ----video42 minute10 , it define where the content float around the elements
+    -webkit-shape-outside: circle(50% at 50% 50%);
+
+    clip-path: circle(
+      50% at 50% 50%
+    ); // and we wanted that element to looa like a circle
+    -webkit-clip-path: circle(50% at 50% 50%);
+
+    transform: translateX(-3rem) skewX(12deg);
+
+    position: relative;
+  }
+
+  &_img {
+    height: 100%; // l'image vas prendre 100% de l'espace du parent qui est story_shape
+    transform: translateX(-3.5rem) scale(1.4); // atnejbed chuiya a la gauche
+    backface-visibility: hidden;
+    transition: all 0.5s;
+  }
+
+  &_text {
+    transform: skewX(12deg);
+  }
+
+  &_caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    opacity: 0;
+
+    transition: all 0.5s;
+    backface-visibility: hidden; // pour arreter le petit moument quand on hover
+  }
+
+  &:hover &_caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    opacity: 1;
+  }
+
+  &:hover &_img {
+    transform: translateX(-3.5rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
 }
