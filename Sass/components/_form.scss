@@ -1,0 +1,110 @@
+.form {
+  // &__group:not(:last-child) {
+  //   margin-bottom: 2rem !important;
+  // }
+
+  &__group:first-child {
+    margin-bottom: 2rem !important;
+  }
+
+  &__input {
+    font-size: 1.6rem;
+    font-family: inherit; // now automatically it will inherit the 'lato' font
+    color: inherit;
+
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba(#fff, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    // margin-bottom: 0.7rem;
+
+    transition: all 0.3s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0rem 1rem 2rem rgba(#000000, 0.1);
+      border-bottom: 3px solid #55c57a;
+
+      &:invalid {
+        border-bottom: 3px solid #ff7730;
+      }
+    }
+
+    &::-webkit-input-placeholder {
+      color: #999;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block; // pour avoir margin top
+
+    transition: all 0.3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    //le plus c'est pour selectionée le selector en dessous du input qui est est le label
+    // et si y'avais dautre selecteur entre eux en aurait  ~ .
+
+    //maintenant on a le : ( si le placeholder est montré alors on on fera au label ceci ) :
+    opacity: 0; //it still on the page but invisible
+    visibility: hidden; // it realy gone , et on a pas laissé visibility pcq on peut pas l'animé c'est pour ça qu'on dout avoir opacity 0
+    transform: translateY(-4rem);
+  }
+
+  &__radio-group {
+    width: 50%;
+    display: inline-block;
+    float: left;
+  }
+
+  &__radio-label {
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding-left: 4rem;
+
+    position: relative;
+  }
+
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid #55c57a;
+    border-radius: 50%;
+    display: inline-block;
+
+    position: absolute;
+    top: -0.4rem;
+    left: 0rem;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 1.3rem;
+      height: 1.3rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-54%, -51%);
+      background-color: #55c57a;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  &__radio-input:checked + &__radio-label &__radio-button::after {
+    opacity: 1;
+    //ici on veut changé le button quand on a le input selectioné alors on regarde la video 47 minute 13
+  }
+
+  &__radio-input {
+    display: none;
+  }
+}
