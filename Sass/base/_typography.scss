@@ -5,11 +5,19 @@
   backface-visibility: hidden;
   margin-bottom: 6rem;
 
+  @include respond(phone) {
+  }
+
   &--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
     letter-spacing: 3.5rem;
+
+    @include respond(phone) {
+      font-size: 5rem;
+      letter-spacing: 1rem;
+    }
 
     animation-name: moveToRight;
     animation-duration: 1s;
@@ -24,6 +32,10 @@
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.74rem;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
 
     animation-name: moveToLeft;
     animation-duration: 1s;
@@ -52,6 +64,14 @@ body {
   display: inline-block;
 
   transition: all 0.2;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
 
   &:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
