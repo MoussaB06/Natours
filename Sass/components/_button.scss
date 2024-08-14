@@ -18,7 +18,11 @@
 
     border: none;
     cursor: pointer;
-    margin-top: 5rem;
+    margin-top: 5rem !important;
+
+    @include respond(phone) {
+      margin-top: 2.4rem !important;
+    }
 
     @include respond(tab-port) {
       margin-top: 0;
@@ -55,6 +59,10 @@
   &-green {
     background-color: #55c57a;
     color: #fff;
+
+    @include respond(tab-port) {
+      margin-top: 3.2rem;
+    }
 
     &::after {
       background-color: $color-primary;
